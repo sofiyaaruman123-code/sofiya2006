@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sofiya Student Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#0f0f1b,#1b1b2f,#16213e);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* BACKGROUND GLOW */
+
+body::before,
+body::after{
+    content:'';
+    position:fixed;
+    width:350px;
+    height:350px;
+    border-radius:50%;
+    filter:blur(120px);
+    z-index:-1;
+}
+
+body::before{
+    background:#ffb6c1;
+    top:-100px;
+    left:-100px;
+}
+
+body::after{
+    background:#a2d2ff;
+    bottom:-100px;
+    right:-100px;
+}
+
+/* NAVBAR */
+
+nav{
+    width:100%;
+    padding:20px 10%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    backdrop-filter:blur(10px);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+nav h1{
+    color:#ffd6e0;
+    font-size:28px;
+}
+
+nav ul{
+    display:flex;
+    gap:20px;
+    list-style:none;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#ffb6c1;
+}
+
+/* HERO SECTION */
+
+.hero{
+    width:90%;
+    max-width:1200px;
+    margin:60px auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:center;
+}
+
+/* PROFILE IMAGE */
+
+.profile-box{
+    text-align:center;
+}
+
+.profile-img{
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    object-fit:cover;
+    border:6px solid #ffb6c1;
+    box-shadow:0 0 40px #ffb6c1;
+    transition:0.5s;
+}
+
+.profile-img:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 60px #a2d2ff;
+}
+
+/* TEXT */
+
+.hero-text h2{
+    font-size:55px;
+    color:#ffd6e0;
+}
+
+.hero-text h3{
+    margin-top:10px;
+    color:#cdb4db;
+    font-size:28px;
+}
+
+.hero-text p{
+    margin-top:20px;
+    line-height:1.8;
+    color:#eee;
+}
+
+/* BUTTON */
+
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:14px 28px;
+    background:linear-gradient(45deg,#ffb6c1,#a2d2ff);
+    border-radius:30px;
+    text-decoration:none;
+    color:black;
+    font-weight:bold;
+    transition:0.4s;
+}
+
+.btn:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 20px #ffb6c1;
+}
+
+/* SECTION */
+
+.section{
+    width:90%;
+    max-width:1200px;
+    margin:40px auto;
+}
+
+.section-title{
+    font-size:35px;
+    color:#ffd6e0;
+    margin-bottom:25px;
+    text-align:center;
+}
+
+/* CARDS */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.15);
+    backdrop-filter:blur(15px);
+    border-radius:25px;
+    padding:25px;
+    transition:0.4s;
+    box-shadow:0 0 20px rgba(0,0,0,0.3);
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 25px rgba(255,182,193,0.4);
+}
+
+.card h3{
+    margin-bottom:15px;
+    color:#ffcad4;
+}
+
+.card p,
+.card li{
+    line-height:1.8;
+    color:#f1f1f1;
+}
+
+/* SKILLS */
+
+.skill{
+    margin-bottom:20px;
+}
+
+.skill span{
+    display:block;
+    margin-bottom:8px;
+}
+
+.bar{
+    width:100%;
+    height:14px;
+    background:#333;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.fill{
+    height:100%;
+    border-radius:20px;
+    background:linear-gradient(90deg,#ffb6c1,#cdb4db,#a2d2ff);
+}
+
+/* CONTACT */
+
+.contact{
+    text-align:center;
+}
+
+.contact p{
+    margin:10px 0;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:25px;
+    margin-top:50px;
+    color:#ccc;
+    border-top:1px solid rgba(255,255,255,0.1);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.hero{
+    grid-template-columns:1fr;
+    text-align:center;
+}
+
+.hero-text h2{
+    font-size:40px;
+}
+
+.profile-img{
+    width:230px;
+    height:230px;
+}
+
+nav{
+    flex-direction:column;
+    gap:15px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<h1>SOFIYA.A</h1>
+
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="profile-box">
+
+<!-- ADD YOUR PHOTO NAME HERE -->
+
+<img src="WhatsApp Image 2026-05-27 at 2.30.26 PM(1).jpeg" class="profile-img">
+
+</div>
+
+<div class="hero-text">
+
+<h2>Hello, I'm Sofiya 👋</h2>
+
+<h3>BCA Student & Future Software Developer</h3>
+
+<p>
+Creative and passionate student interested in web development,
+technology, and designing modern websites. I love learning new
+skills and building beautiful projects.
+</p>
+
+<a href="#contact" class="btn">Contact Me</a>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="section" id="about">
+
+<h2 class="section-title">👩 About Me</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Personal Info</h3>
+
+<p>
+I completed my schooling at Kolping Matriculation Higher Secondary School, Pondicherry and currently studying BCA at Don Bosco College.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Career Goal</h3>
+
+<p>
+My goal is to become a successful software developer and create innovative projects using creativity and technology.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- EDUCATION -->
+
+<section class="section" id="education">
+
+<h2 class="section-title">🎓 Education</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>School</h3>
+
+<p>Kolping Matriculation Higher Secondary School, Pondicherry</p>
+
+</div>
+
+<div class="card">
+
+<h3>College</h3>
+
+<p>BCA - Don Bosco College, Yelagiri Hills</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SKILLS -->
+
+<section class="section" id="skills">
+
+<h2 class="section-title">💻 Skills</h2>
+
+<div class="card">
+
+<div class="skill">
+<span>HTML</span>
+<div class="bar">
+<div class="fill" style="width:90%"></div>
+</div>
+</div>
+
+<div class="skill">
+<span>CSS</span>
+<div class="bar">
+<div class="fill" style="width:85%"></div>
+</div>
+</div>
+
+<div class="skill">
+<span>C++</span>
+<div class="bar">
+<div class="fill" style="width:75%"></div>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section class="section" id="projects">
+
+<h2 class="section-title">🚀 Projects</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Student Portfolio</h3>
+
+<p>
+Designed a responsive and modern portfolio website using HTML and CSS.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Login Page Design</h3>
+
+<p>
+Created stylish login page UI designs inspired by OTT applications.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Creative Resume</h3>
+
+<p>
+Built interactive resume templates with animations and pastel themes.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="section contact" id="contact">
+
+<h2 class="section-title">📞 Contact</h2>
+
+<div class="card">
+
+<p>📧 sofia@gmail.com</p>
+<p>📱 23456789</p>
+<p>📍 Tamil Nadu, India</p>
+
+<a href="#" class="btn">Download Resume</a>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+© 2026 Sofiya Student Portfolio | Designed with ❤️
+
+</footer>
+
+</body>
+</html>
